@@ -5,8 +5,12 @@ on: [pull_request, workflow_dispatch]
 jobs:
   job1:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - run: |
           echo "Workflow triggered in branch '${{ github.ref }}'"
           echo "Workflow triggered by event '${{ github.event }}'"
           echo "Workflow triggered by actor '${{ github.actor }}'"
+          echo "PR title is '${{ github.event.pull_request.title }}'"
