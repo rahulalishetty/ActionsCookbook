@@ -14,7 +14,7 @@ jobs:
       - uses: devops-actions/actionlint@v0.1.2
       - run: |
           echo "Workflow triggered in branch '${{ github.ref }}'"
-          echo "Workflow triggered by event '${{ github.event }}'"
+          echo "Workflow triggered by event '${{ toJson(github.event) }}'"
           echo "Workflow triggered by actor '${{ github.actor }}'"
 
           echo "::debug::This is a debug message."
